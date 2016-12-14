@@ -19,6 +19,14 @@ _cgo_export.*
 
 _testmain.go
 
+log*
 *.exe
 *.test
 *.prof
+bin
+pkg
+dict
+github.com
+golang.org
+sourcegraph.com
+test.go

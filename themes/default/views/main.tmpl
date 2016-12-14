@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/favicon.ico" />
+    <title>{{.title}}</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+</head>
+
+<body>
+    <div class="loginArea">
+        <form action="/api/login" class="userInfo" method="POST">
+            <input name="username" placeholder="username"/>
+            <input name="password" placeholder="password"/>
+            <input type="submit" value="commit" class="submit"/>
+        </form>
+    </div>
+<button id="login">登录</button>
+<script src="/static/js/jq.min.js"></script>
+<script>
+    $("#login").click(function () {
+        $(".loginArea").show();
+    });
+    $(".submit").click(function () {
+       $(".loginArea").hide();
+    });
+</script>
+</body>
+
+</html>
