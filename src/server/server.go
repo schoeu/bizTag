@@ -25,8 +25,4 @@ func RunServer(customPort string) {
 	router.Run(port)
 }
 
-type Login struct {
-    User     string `form:"username" json:"username" binding:"required"`
-    Password string `form:"password" json:"password" binding:"required"`
-}
 

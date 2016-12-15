@@ -3,7 +3,6 @@ package server
 import (
 	"encoding/json"
 	"io/ioutil"
-	"fmt"
 )
 
 var (
@@ -22,7 +21,6 @@ type cfg struct {
 func getConf() cfg{
     var c cfg
     content, err := ioutil.ReadFile(defaultPath)
-    fmt.Println(string(content))
     if err != nil {
         panic(err)
     }

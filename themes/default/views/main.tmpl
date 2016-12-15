@@ -8,23 +8,26 @@
 </head>
 
 <body>
-    <div class="loginArea">
-        <form action="/api/login" class="userInfo" method="POST">
-            <input name="username" placeholder="username"/>
-            <input name="password" placeholder="password"/>
-            <input type="submit" value="commit" class="submit"/>
+    <div class="container">
+        <form role="form"  action="/api/login" method="POST">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">username</div>
+                    <input class="form-control"  name="username" type="text" placeholder="Enter username">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">password</div>
+                    <input class="form-control"  name="username" type="password" placeholder="Enter password">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default text-center">登录</button>
+            </div>
         </form>
     </div>
-<button id="login">登录</button>
 <script src="/static/js/jq.min.js"></script>
-<script>
-    $("#login").click(function () {
-        $(".loginArea").show();
-    });
-    $(".submit").click(function () {
-       $(".loginArea").hide();
-    });
-</script>
 </body>
 
 </html>
