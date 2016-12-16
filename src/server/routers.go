@@ -14,7 +14,7 @@ type Login struct {
 
 func routers(r *gin.Engine) {
 	r.LoadHTMLGlob(filepath.Join(staticPrefix, "views/*"))
-	r.POST("/api/login", func(c *gin.Context) {
+	r.POST("/login", func(c *gin.Context) {
 		var form Login
 		db := getDB()
 		defer db.Close()
@@ -61,6 +61,12 @@ func routers(r *gin.Engine) {
 	r.GET("/signup", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "signup.tmpl", gin.H{
 			"title": "Sign up",
+		})
+	})
+
+	r.GET("/login", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.tmpl", gin.H{
+			"title": "Sign in",
 		})
 	})
 }
