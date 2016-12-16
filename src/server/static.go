@@ -7,5 +7,5 @@ import (
 
 func staticProcess(r *gin.Engine) {
 	r.Static("/static", staticPath)
-    r.StaticFile("/favicon.ico", filepath.Join(staticPath, "favicon.ico"))
+	r.StaticFile("/favicon.ico", filepath.Join(staticPath, "favicon.ico"))
 }

@@ -6,24 +6,23 @@ import (
 )
 
 var (
-	defaultPath   = "../config/config.json"
+	defaultPath = "../config/config.json"
 )
 
 type cfg struct {
-	DBAddress string `json:"db_address"`
-    DBName string `json:"db_name"`
-    DBPassword string `json:"db_password"`
-    DBUsername string `json:"db_username"`
+	DBAddress  string `json:"db_address"`
+	DBName     string `json:"db_name"`
+	DBPassword string `json:"db_password"`
+	DBUsername string `json:"db_username"`
 }
 
-
 // 获取配置文件
-func getConf() cfg{
-    var c cfg
-    content, err := ioutil.ReadFile(defaultPath)
-    if err != nil {
-        panic(err)
-    }
-    json.Unmarshal(content, &c)
+func getConf() cfg {
+	var c cfg
+	content, err := ioutil.ReadFile(defaultPath)
+	if err != nil {
+		panic(err)
+	}
+	json.Unmarshal(content, &c)
 	return c
 }

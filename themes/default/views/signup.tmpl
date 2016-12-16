@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/favicon.ico" />
+    <title>{{.title}}</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+</head>
+
+<body>
+<div class="container">
+    <div class="bg-white">
+
+        <nav class="navbar navbar-primary">
+            <div class="container">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img alt="Coach" src="/assets/marketing/coach-logo-full-c0676f606766a065d8394e7d0944464ea4451ff13780f116f4ac0610d0086937.svg">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div id="header-navbar-collapse" class="collapse navbar-collapse">
+                    <div class=" navbar-right">
+                        <div class="navbar-text">
+                            <small>
+                                Have an account?
+                                <strong><a href="/login">Sign in</a></strong>
+                            </small>
+                        </div>
+                        <div style="display: none;"></div>
+                    </div>
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1>Make a living off your passion</h1>
+                    <p>Get started by filling in your info below.</p>
+                </div>
+            </div>
+            <div class="row v-center">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <form class="signup-form" role="form" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="l586A4sEj8EYlko8d4vCXmvqMzBPxfJAiCpHE1j+QeTxBP6wCmN4SjRIDMdqCGIrpo6L62hb/zh56MZnXY7u0Q==">
+                        <div class="form-group"><label class="control-label" for="user_full_name">Your name</label><input placeholder="Homer Simpson" required="required" autofocus="autofocus" class="form-control" type="text" value="" name="user[full_name]" id="user_full_name"></div>
+                        <div class="form-group"><label class="control-label" for="user_email">Your email</label><input placeholder="donutluvr986@aol.com" required="required" class="form-control" type="email" name="user[email]" id="user_email"></div>
+                        <div class="form-group"><label class="control-label" for="user_password">Password</label><input placeholder="mmmdonuts123" required="required" class="form-control" type="password" name="user[password]" id="user_password"></div>
+                        <div class="row v-center">
+                            <div class="col-sm-5"><input type="submit" name="commit" value="Next" class="btn btn-primary btn-block"></div>
+                            <div class="col-sm-7">
+                                <div class="signup-tos"><div class="text-muted">
+                                    By clicking "Next" you agree to our
+                                    <a class="text-sans-serif text-bold text-muted" target="_blank" href="/terms">Terms of Service</a>
+                                    and
+                                    <a class="text-sans-serif text-bold text-muted" target="_blank" href="/privacy">Privacy Policy.</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5 hidden-xs">
+                    <img class="img-responsive center-block" src="/assets/marketing/profit-bf09cda258f678a95b4598cacd833d662a80a3ffda4bef8529fc4fa15d9dc970.svg" alt="Profit">
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/jq.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>

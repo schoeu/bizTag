@@ -9,25 +9,80 @@
 
 <body>
     <div class="container">
-        <form role="form"  action="/api/login" method="POST">
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon">username</div>
-                    <input class="form-control"  name="username" type="text" placeholder="Enter username">
+        <nav class="navbar navbar-primary">
+            <div class="container">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img alt="Coach" src="/static/imgs/logo.svg">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div id="header-navbar-collapse" class="collapse navbar-collapse">
+                    <div class=" navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="/features">Features</a></li>
+                            <li class=""><a href="/examples">Examples</a></li>
+                            <li class=""><a href="/pricing">Pricing</a></li>
+                            <li class=""><a href="#"  data-toggle="modal" data-target="#myModal">Login</a></li>
+                        </ul>
+                        <a class="btn btn-primary btn-sm navbar-btn" href="/signup">Sign up</a>
+                    </div>
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="">
+                            <div class="row offset-large">
+                                <div class="col-sm-12 text-center">
+                                    <h1>Nice to see you today!</h1>
+                                    <p>Enter your info below to login.</p>
+                                </div>
+                            </div>
+                            <div class="row pt6 offset-base">
+                                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                                    <form role="form" action="/api/login" accept-charset="UTF-8" method="post">
+                                        <div class="form-group">
+                                            <label class="control-label" for="username">Username</label>
+                                            <input placeholder="username" class="form-control" name="username" id="username" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="password">Password</label>
+                                            <input value="" placeholder="password" class="form-control" name="password" id="password" type="password">
+                                        </div>
+                                        <div class="offset-base"></div>
+                                        <input type="submit" name="commit" value="Login" class="btn btn-primary btn-block" data-dismiss="modal">
+                                    </form>
+                                    <p class="text-center pt5 offset-base">
+                                        <small>
+                                            <a class="text-muted" href="/forgot-password">Forgot your password?</a>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon">password</div>
-                    <input class="form-control"  name="username" type="password" placeholder="Enter password">
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-default text-center">登录</button>
-            </div>
-        </form>
+        </div>
+
     </div>
-<script src="/static/js/jq.min.js"></script>
+    <script src="/static/js/jq.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
 </body>
 
 </html>

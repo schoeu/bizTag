@@ -8,21 +8,19 @@ import (
 )
 
 var (
-    port = ":8911"
-	theme = "default"
+	port         = ":8911"
+	theme        = "default"
 	staticPrefix = "../themes/" + theme
-	staticPath = filepath.Join(staticPrefix, "static/")
+	staticPath   = filepath.Join(staticPrefix, "static/")
 )
 
 func RunServer(customPort string) {
 	router := gin.Default()
-    if customPort != "" {
-        port = customPort
-    }	
+	if customPort != "" {
+		port = customPort
+	}
 
 	routers(router)
 	staticProcess(router)
 	router.Run(port)
 }
-
-
