@@ -1,17 +1,15 @@
-$suForm = $("#addsForm");
-$smtBtn = $suForm.find('.signupSbm');
-$uname = $(".biz_username");
-$suForm.on("submit", function () {
+$addsForm = $("#addsForm");
+$smtBtn = $addsForm.find('.addsBtn');
+$smtBtn.on("click", function () {
     $smtBtn.attr("disabled", true);
-    var data = $smtBtn.serialize();
+    var data = $addsForm.serialize();
     $.ajax({
-        url: "/signup",
+        url: "/addsite",
         type: "post",
         data: data
     }).done(function (d) {
         if (d.errorNo === 0) {
             console.log(d)
-            $uname.text(d.username || "");
         }
     }).complete(function () {
         $smtBtn.attr("disabled", false);

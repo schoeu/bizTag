@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"path/filepath"
 	"database/sql"
+	"net/url"
+	"fmt"
 )
 
 type Login struct {
@@ -17,6 +19,12 @@ type Signup struct {
 	User     string `form:"username" json:"username" binding:"required"`
 	Password string `form:"password" json:"password" binding:"required"`
 	Email string `form:"email" json:"email" binding:"required"`
+}
+
+type AddSite struct {
+	SiteName     string `form:"site_name" json:"site_name" binding:"required"`
+	SiteUrl string `form:"site_url" json:"site_url" binding:"required"`
+	SiteGroup string `form:"site_group" json:"email"`
 }
 
 
@@ -124,6 +132,62 @@ func routers(r *gin.Engine) {
 					"msg": "wrong password.",
 				})
 			}
+		}
+	})
+
+	// 注册POST
+	r.POST("/addsite", func(c *gin.Context) {
+		var form AddSite
+		if c.Bind(&form) == nil {
+
+			var id string
+			siteUrl := form.SiteUrl
+			siteInfo, err := url.Parse(siteUrl)
+			checkErr(err)
+			fmt.Println(siteInfo)
+
+			host := siteInfo.Host
+
+			siteFullUrl := siteInfo.Scheme + "://" + siteInfo.Host
+
+			siteIcon := siteUrl + "/favicon.ico"
+
+			rows, err := db.Query("select id from sites where site_name = ?", host)
+			defer rows.Close()
+
+			for rows.Next() {
+				err := rows.Scan(&id)
+				checkErr(err)
+			}
+
+			err = rows.Err()
+			checkErr(err)
+
+			// 表中无记录
+			if id == "" {
+				stmt, err := db.Prepare("insert into sites(site_url, site_name, site_group, site_icon)values(?,?,?,?)")
+				checkErr(err)
+
+				defer stmt.Close()
+
+				_, err = stmt.Exec(siteFullUrl, form.SiteName, form.SiteGroup, siteIcon)
+				if err != sql.ErrNoRows {
+					c.JSON(http.StatusOK, gin.H{
+						"errorNo": 0,
+						"ok": 1,
+					})
+				} else {
+					checkErr(err)
+				}
+			} else {
+				checkErr(err)
+				c.JSON(http.StatusOK, gin.H{
+					"errorNo": 0,
+					"has": 1,
+				})
+			}
+
+			checkErr(err)
 		}
 	})
 }
