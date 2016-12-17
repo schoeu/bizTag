@@ -14,6 +14,34 @@ type Login struct {
 
 func routers(r *gin.Engine) {
 	r.LoadHTMLGlob(filepath.Join(staticPrefix, "views/*"))
+
+	// 主页
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "main.tmpl", gin.H{
+			"title": "psfe",
+		})
+	})
+
+	// 注册GET
+	r.GET("/signup", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "signup.tmpl", gin.H{
+			"title": "Sign up",
+		})
+	})
+
+	// 注册POST
+	r.POST("/signup", func(c *gin.Context) {
+
+	})
+
+	// 登录GET
+	r.GET("/login", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.tmpl", gin.H{
+			"title": "Sign in",
+		})
+	})
+
+	// 登录POST
 	r.POST("/login", func(c *gin.Context) {
 		var form Login
 		db := getDB()
@@ -50,23 +78,5 @@ func routers(r *gin.Engine) {
 				c.JSON(http.StatusUnauthorized, gin.H{"status": "unauthorized"})
 			}
 		}
-	})
-
-	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "main.tmpl", gin.H{
-			"title": "psfe",
-		})
-	})
-
-	r.GET("/signup", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "signup.tmpl", gin.H{
-			"title": "Sign up",
-		})
-	})
-
-	r.GET("/login", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "login.tmpl", gin.H{
-			"title": "Sign in",
-		})
 	})
 }
