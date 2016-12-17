@@ -31,6 +31,7 @@ func routers(r *gin.Engine) {
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "main.tmpl", gin.H{
 			"title": "psfe",
+			"username": "schoeu",
 		})
 	})
 
@@ -38,6 +39,7 @@ func routers(r *gin.Engine) {
 	r.GET("/signup", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "signup.tmpl", gin.H{
 			"title": "Sign up",
+			"isLogin": false,
 		})
 	})
 
@@ -46,7 +48,8 @@ func routers(r *gin.Engine) {
 		var form Signup
 		if c.Bind(&form) == nil {
 			var id string
-			rows, err := db.Query("select id from users where username = ?", form.User)
+			uname := form.User
+			rows, err := db.Query("select id from users where username = ?", uname)
 			defer rows.Close()
 
 			for rows.Next() {
@@ -64,11 +67,12 @@ func routers(r *gin.Engine) {
 
 				defer stmt.Close()
 
-				_, err = stmt.Exec(form.User, form.Password, form.Email)
+				_, err = stmt.Exec(uname, form.Password, form.Email)
 				if err != sql.ErrNoRows {
 					c.JSON(http.StatusOK, gin.H{
 						"errorNo": 0,
 						"has": 0,
+						"username": uname,
 					})
 				} else {
 					checkErr(err)
@@ -89,6 +93,7 @@ func routers(r *gin.Engine) {
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.tmpl", gin.H{
 			"title": "Sign in",
+			"isLogin": false,
 		})
 	})
 

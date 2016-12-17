@@ -22,9 +22,15 @@
                     <li class=""><a href="/features">Features</a></li>
                     <li class=""><a href="/examples">Examples</a></li>
                     <li class=""><a href="/pricing">Pricing</a></li>
-                    <li class="active"><a href="/login">Login</a></li>
+                    {{if not .isLogin}}
+                    <li class="active" class="biz_username"><a href="/login">Login</a></li>
+                    {{else}}
+                    <li><a href="/pinfo" class="biz_username">{{.username}}</a></li>
+                    {{end}}
                 </ul>
+                {{if not .isLogin}}
                 <a class="btn btn-primary btn-sm navbar-btn" href="/signup">Sign up</a>
+                {{end}}
             </div>
 
         </div><!-- /.navbar-collapse -->

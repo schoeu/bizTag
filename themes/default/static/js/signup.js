@@ -1,5 +1,6 @@
 $suForm = $("#signup");
 $smtBtn = $suForm.find('.signupSbm');
+$uname = $(".biz_username");
 $suForm.on("submit", function () {
     $smtBtn.attr("disabled", true);
     var data = $target.serialize();
@@ -10,6 +11,7 @@ $suForm.on("submit", function () {
     }).done(function (d) {
         if (d.errorNo === 0) {
             console.log(d)
+            $uname.text(d.username || "");
         }
     }).complete(function () {
         $smtBtn.attr("disabled", false);
