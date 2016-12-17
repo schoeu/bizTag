@@ -46,24 +46,26 @@ func routers(r *gin.Engine) {
 		var form Signup
 		if c.Bind(&form) == nil {
 			var id string
-			rows := db.QueryRow("select id from users where username = ?", form.User)
+			rows, err := db.Query("select id from users where username = ?", form.User)
+			defer rows.Close()
 
-			err := rows.Scan(&id)
+			for rows.Next() {
+				err := rows.Scan(&id)
+				checkErr(err)
+			}
+
+			err = rows.Err()
+			checkErr(err)
 
 			// 表中无记录
-			if err == sql.ErrNoRows {
+			if id == "" {
 				stmt, err := db.Prepare("insert into users(username, password, email)values(?,?,?)")
-				if err != nil {
-					log.Println(err)
-				}
-
-				rs, err := stmt.Exec(form.User, form.Password, form.Email)
 				checkErr(err)
 
-				// 获得影响行数
-				_, err = rs.RowsAffected()
+				defer stmt.Close()
 
-				if err == nil {
+				_, err = stmt.Exec(form.User, form.Password, form.Email)
+				if err != sql.ErrNoRows {
 					c.JSON(http.StatusOK, gin.H{
 						"errorNo": 0,
 						"has": 0,
@@ -71,7 +73,6 @@ func routers(r *gin.Engine) {
 				} else {
 					checkErr(err)
 				}
-				stmt.Close()
 			} else {
 				checkErr(err)
 				c.JSON(http.StatusOK, gin.H{
