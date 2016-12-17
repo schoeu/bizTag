@@ -7,12 +7,19 @@ import (
 	"config"
 )
 
+var db *sql.DB
+
 func getDB() *sql.DB {
 	var cfg = config.GetConf()
 
-	db, err := sql.Open("mysql", cfg.DBUsername+":"+cfg.DBPassword+cfg.DBAddress+"/"+cfg.DBName)
+	tDB, err := sql.Open("mysql", cfg.DBUsername+":"+cfg.DBPassword+cfg.DBAddress+"/"+cfg.DBName)
 	if err != nil {
 		panic(err.Error())
 	}
+	db = tDB
 	return db
+}
+
+func CloseDB() {
+	db.Close()
 }

@@ -1,12 +1,12 @@
 package main
 
 import (
-	"server"
 	"config"
+	"server"
 )
 
 func main() {
 	config.ReadConf()
-	server.RunServer(":8911")
-
+	server.RunServer()
+	server.CloseDB()
 }
