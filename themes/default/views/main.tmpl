@@ -2,11 +2,102 @@
 <head>
     {{template "base_headinfo"}}
     <link type="text/css" rel="stylesheet" href="/static/css/sign.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css"/>
 </head>
 
 <body class="bg-white">
     <div class="container">
         {{template "base_nav"}}
+    </div>
+
+    <div class="row v-center searchArea">
+        <div class="col-sm-12 col-md-7 col-sm-offset-1">
+            <form class="signup-form" role="form" id="searchForm" action="javascript:void(0)" accept-charset="UTF-8" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="searchKey">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary searchBtn" type="button">Search</button>
+                    </span>
+                </div><!-- /input-group -->
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <h3>My collections</h3>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseOne">
+                            设计类
+                        </a>
+
+                        <span class="glyphicon glyphicon-plus pull-right" data-toggle="modal" data-target="#myModal"></span>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <button type="button" class="btn btn-default btn-sm">
+                            Action
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">添加收藏</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form"  action="/api/login" method="POST">
+                                <div class="form-group">
+                                    <label for="site_name">Site name</label>
+                                    <input class="form-control" name="site_name" type="text" placeholder="Enter site name" id="site_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="site_name">Site url</label>
+                                    <input class="form-control"  name="site_url" type="text" placeholder="Enter site url" id="site_url">
+                                </div>
+                                <div class="form-group">
+                                    <label for="site_name">Group</label>
+                                    <select name="site_group" id="site_group" class="form-control">
+                                        <option value="design">design</option>
+                                        <option value="programe">programe</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary text-center btn-block" data-dismiss="modal">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseTwo">
+                            展示类
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                        vice lomo.
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <script src="/static/js/jq.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
