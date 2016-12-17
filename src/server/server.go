@@ -9,9 +9,9 @@ import (
 )
 
 var (
-	port = ":8910"
+	port         = ":8910"
 	staticPrefix = ""
-	staticPath = ""
+	staticPath   = ""
 )
 
 func RunServer() {

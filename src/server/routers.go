@@ -1,13 +1,13 @@
 package server
 
 import (
+	"database/sql"
+	"fmt"
 	"gopkg.in/gin-gonic/gin.v1"
 	"log"
 	"net/http"
-	"path/filepath"
-	"database/sql"
 	"net/url"
-	"fmt"
+	"path/filepath"
 )
 
 type Login struct {
@@ -18,16 +18,14 @@ type Login struct {
 type Signup struct {
 	User     string `form:"username" json:"username" binding:"required"`
 	Password string `form:"password" json:"password" binding:"required"`
-	Email string `form:"email" json:"email" binding:"required"`
+	Email    string `form:"email" json:"email" binding:"required"`
 }
 
 type AddSite struct {
-	SiteName     string `form:"site_name" json:"site_name" binding:"required"`
-	SiteUrl string `form:"site_url" json:"site_url" binding:"required"`
+	SiteName  string `form:"site_name" json:"site_name" binding:"required"`
+	SiteUrl   string `form:"site_url" json:"site_url" binding:"required"`
 	SiteGroup string `form:"site_group" json:"email"`
 }
-
-
 
 func routers(r *gin.Engine) {
 
@@ -38,7 +36,7 @@ func routers(r *gin.Engine) {
 	// 主页
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "main.tmpl", gin.H{
-			"title": "psfe",
+			"title":    "psfe",
 			"username": "schoeu",
 		})
 	})
@@ -46,7 +44,7 @@ func routers(r *gin.Engine) {
 	// 注册GET
 	r.GET("/signup", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "signup.tmpl", gin.H{
-			"title": "Sign up",
+			"title":   "Sign up",
 			"isLogin": false,
 		})
 	})
@@ -78,8 +76,8 @@ func routers(r *gin.Engine) {
 				_, err = stmt.Exec(uname, form.Password, form.Email)
 				if err != sql.ErrNoRows {
 					c.JSON(http.StatusOK, gin.H{
-						"errorNo": 0,
-						"has": 0,
+						"errorNo":  0,
+						"has":      0,
 						"username": uname,
 					})
 				} else {
@@ -89,7 +87,7 @@ func routers(r *gin.Engine) {
 				checkErr(err)
 				c.JSON(http.StatusOK, gin.H{
 					"errorNo": 0,
-					"has": 1,
+					"has":     1,
 				})
 			}
 
@@ -100,7 +98,7 @@ func routers(r *gin.Engine) {
 	// 登录GET
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.tmpl", gin.H{
-			"title": "Sign in",
+			"title":   "Sign in",
 			"isLogin": false,
 		})
 	})
@@ -129,7 +127,7 @@ func routers(r *gin.Engine) {
 				c.JSON(http.StatusOK, gin.H{
 					"errorNo": 0,
 					"issigup": 1,
-					"msg": "wrong password.",
+					"msg":     "wrong password.",
 				})
 			}
 		}
@@ -174,7 +172,7 @@ func routers(r *gin.Engine) {
 				if err != sql.ErrNoRows {
 					c.JSON(http.StatusOK, gin.H{
 						"errorNo": 0,
-						"ok": 1,
+						"ok":      1,
 					})
 				} else {
 					checkErr(err)
@@ -183,7 +181,7 @@ func routers(r *gin.Engine) {
 				checkErr(err)
 				c.JSON(http.StatusOK, gin.H{
 					"errorNo": 0,
-					"has": 1,
+					"has":     1,
 				})
 			}
 
