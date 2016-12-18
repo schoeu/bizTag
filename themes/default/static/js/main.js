@@ -9,7 +9,7 @@ $smtBtn.on("click", function () {
         data: data
     }).done(function (d) {
         if (d.errorNo === 0) {
-            console.log(d)
+            $('#addSiteModal').modal('hide');
         }
     }).complete(function () {
         $smtBtn.attr("disabled", false);

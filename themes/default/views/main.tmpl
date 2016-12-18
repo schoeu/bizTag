@@ -34,13 +34,13 @@
                                href="#collapseOne">
                                 {{.FavName}}
                             </a>
-                            <span class="glyphicon glyphicon-plus pull-right" data-toggle="modal" data-target="#myModal"></span>
+                            <span class="glyphicon glyphicon-plus pull-right" data-toggle="modal" data-target="#addSiteModal"></span>
                         </h4>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                             {{range .FavData}}
-                                <button type="button" class="btn btn-default btn-sm">
+                                <button type="button" class="btn btn-default btn-sm fav-btn">
                                     <span style="background-image: url({{.SiteIcon}})" class="site-icon"></span>
                                     <a href="{{.SiteUrl}}">
                                         {{.SiteName}}
@@ -55,7 +55,7 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addSiteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <form role="form"  action="javascript:void(0);" method="POST" id="addsForm">
                     <div class="modal-content">
@@ -75,8 +75,9 @@
                             <div class="form-group">
                                 <label for="site_group">Group</label>
                                 <select name="site_group" id="site_group" class="form-control">
-                                    <option value="design">design</option>
-                                    <option value="programe">programe</option>
+                                    <option value="4">all</option>
+                                    <option value="2">design</option>
+                                    <option value="3">programe</option>
                                 </select>
                             </div>
                         </div>

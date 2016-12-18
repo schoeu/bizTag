@@ -2,7 +2,6 @@ package server
 
 import (
 	"database/sql"
-	"fmt"
 	"gopkg.in/gin-gonic/gin.v1"
 	"log"
 	"net/http"
@@ -72,15 +71,9 @@ func routers(r *gin.Engine) {
 				fav = favCtt{}
 				fav.FavName = tagName
 				prefix = tagName
-
 			}
 			favInfoIns := favInfo{siteName, siteIcon, siteUrl,}
 			fav.FavData = append(fav.FavData, favInfoIns)
-
-			fmt.Println(tagName, siteName, siteIcon, siteUrl)
-
-
-
 		}
 
 		if !isPush {
@@ -194,14 +187,19 @@ func routers(r *gin.Engine) {
 		if c.Bind(&form) == nil {
 
 			var id string
-			siteUrl := form.SiteUrl
-			siteInfo, err := url.Parse(siteUrl)
+			siteInfo, err := url.Parse(form.SiteUrl)
 			checkErr(err)
-			fmt.Println(siteInfo)
+			scheme := siteInfo.Scheme
+			if scheme == "" {
+				scheme = "http"
+			}
+			scheme = scheme + "://"
 
+			siteUrl := scheme + siteInfo.Host
 			host := siteInfo.Host
 
-			siteFullUrl := siteInfo.Scheme + "://" + siteInfo.Host
+
+			siteFullUrl := scheme + siteInfo.Host + siteInfo.Path
 
 			siteIcon := siteUrl + "/favicon.ico"
 
@@ -218,7 +216,7 @@ func routers(r *gin.Engine) {
 
 			// 表中无记录
 			if id == "" {
-				stmt, err := db.Prepare("insert into sites(site_url, site_name, site_group, site_icon)values(?,?,?,?)")
+				stmt, err := db.Prepare("insert into sites(site_url, site_name, tag, site_icon)values(?,?,?,?)")
 				checkErr(err)
 
 				defer stmt.Close()

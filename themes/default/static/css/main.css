@@ -1,3 +1,16 @@
 .searchArea{
     margin-bottom: 50px;
 }
+.fav-btn{
+    position: relative;
+    background: #fff;
+    border: 1px solid #2b9cf2;
+}
+.site-icon{
+    background-size: cover;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: sub;
+    margin-right: 3px;
+}
