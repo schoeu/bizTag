@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"path/filepath"
+	"regexp"
 )
 
 type Login struct {
@@ -193,15 +194,25 @@ func routers(r *gin.Engine) {
 			if scheme == "" {
 				scheme = "http"
 			}
-			scheme = scheme + "://"
 
-			siteUrl := scheme + siteInfo.Host
 			host := siteInfo.Host
 
+			if host == "" {
+				host = siteInfo.Path
+			}
 
-			siteFullUrl := scheme + siteInfo.Host + siteInfo.Path
 
-			siteIcon := siteUrl + "/favicon.ico"
+
+
+			siteFullUrl := form.SiteUrl
+
+			siteIcon := filepath.Join(host, "/favicon.ico")
+
+
+			matched, err := regexp.MatchString("://", siteIcon)
+			if !matched {
+				siteIcon = scheme + "://" + siteIcon
+			}
 
 			rows, err := db.Query("select id from sites where site_name = ?", host)
 			defer rows.Close()
