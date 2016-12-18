@@ -27,6 +27,21 @@ type AddSite struct {
 	SiteGroup string `form:"site_group" json:"email"`
 }
 
+type favInfo struct {
+	SiteName string
+	SiteIcon string
+	SiteUrl string
+}
+
+type favCtt struct {
+	FavName string
+	FavData []favInfo
+}
+
+type rsFav []favCtt
+
+type test []int 
+
 func routers(r *gin.Engine) {
 
 	r.LoadHTMLGlob(filepath.Join(staticPrefix, "views/*"))
@@ -35,9 +50,49 @@ func routers(r *gin.Engine) {
 
 	// 主页
 	r.GET("/", func(c *gin.Context) {
+		var siteName, siteIcon, siteUrl, tagName string
+		uname := 1
+		rows, err := db.Query("select sites.site_name,sites.site_icon,sites.site_url, tags.tag_name from sites, tags, users WHERE sites.tag = tags.id and users.id = ? GROUP BY sites.tag, sites.id", uname)
+		defer rows.Close()
+
+		var prefix = ""
+		var isPush = false
+		fav := favCtt{}
+		//dataArr := fav.data
+		rsFavIns := rsFav{}
+		for rows.Next() {
+			err := rows.Scan(&siteName, &siteIcon, &siteUrl, &tagName)
+			checkErr(err)
+			isPush = false
+			if prefix != tagName {
+				if prefix != "" {
+					rsFavIns = append(rsFavIns, fav)
+					isPush = true
+				}
+				fav = favCtt{}
+				fav.FavName = tagName
+				prefix = tagName
+
+			}
+			favInfoIns := favInfo{siteName, siteIcon, siteUrl,}
+			fav.FavData = append(fav.FavData, favInfoIns)
+
+			fmt.Println(tagName, siteName, siteIcon, siteUrl)
+
+
+
+		}
+
+		if !isPush {
+			rsFavIns = append(rsFavIns, fav)
+		}
+		err = rows.Err()
+		checkErr(err)
+
 		c.HTML(http.StatusOK, "main.tmpl", gin.H{
 			"title":    "psfe",
 			"username": "schoeu",
+			"favData": rsFavIns,
 		})
 	})
 

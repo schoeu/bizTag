@@ -24,77 +24,67 @@
     </div>
     <div class="container">
         <h3>My collections</h3>
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion"
-                           href="#collapseOne">
-                            Design
-                        </a>
 
-                        <span class="glyphicon glyphicon-plus pull-right" data-toggle="modal" data-target="#myModal"></span>
-                    </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-sm">
-                            Action
-                        </button>
+        <div class="panel-group" id="accordion">
+            {{range .favData}}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseOne">
+                                {{.FavName}}
+                            </a>
+                            <span class="glyphicon glyphicon-plus pull-right" data-toggle="modal" data-target="#myModal"></span>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            {{range .FavData}}
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <span style="background-image: url({{.SiteIcon}})" class="site-icon"></span>
+                                    <a href="{{.SiteUrl}}">
+                                        {{.SiteName}}
+                                    </a>
+                                </button>
+                            {{end}}
+                        </div>
                     </div>
                 </div>
-            </div>
+            {{end}}
+        </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <form role="form"  action="javascript:void(0);" method="POST" id="addsForm">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Add</h4>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form role="form"  action="javascript:void(0);" method="POST" id="addsForm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Add</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="site_name">Site name</label>
+                                <input class="form-control" name="site_name" type="text" placeholder="Enter site name" id="site_name">
                             </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="site_name">Site name</label>
-                                    <input class="form-control" name="site_name" type="text" placeholder="Enter site name" id="site_name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="site_url">Site url</label>
-                                    <input class="form-control"  name="site_url" type="text" placeholder="Enter site url" id="site_url">
-                                </div>
-                                <div class="form-group">
-                                    <label for="site_group">Group</label>
-                                    <select name="site_group" id="site_group" class="form-control">
-                                        <option value="design">design</option>
-                                        <option value="programe">programe</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="site_url">Site url</label>
+                                <input class="form-control"  name="site_url" type="text" placeholder="Enter site url" id="site_url">
                             </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary text-center btn-block addsBtn" data-dismiss="modal">Add Site</button>
+                            <div class="form-group">
+                                <label for="site_group">Group</label>
+                                <select name="site_group" id="site_group" class="form-control">
+                                    <option value="design">design</option>
+                                    <option value="programe">programe</option>
+                                </select>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion"
-                           href="#collapseTwo">
-                            Programe
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                        vice lomo.
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary text-center btn-block addsBtn" data-dismiss="modal">Add Site</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
