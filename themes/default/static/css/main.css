@@ -6,6 +6,11 @@
     background: #fff;
     border: 1px solid #2b9cf2;
 }
+.fav-btn:hover{
+    background: #2b9cf2;
+    color: #fff;
+    text-decoration: none;
+}
 .site-icon{
     background-size: cover;
     display: inline-block;
