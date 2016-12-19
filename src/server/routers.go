@@ -30,7 +30,7 @@ type AddSite struct {
 type favInfo struct {
 	SiteName string
 	SiteIcon string
-	SiteUrl string
+	SiteUrl  string
 }
 
 type favCtt struct {
@@ -40,7 +40,7 @@ type favCtt struct {
 
 type rsFav []favCtt
 
-type test []int 
+type test []int
 
 func routers(r *gin.Engine) {
 
@@ -73,7 +73,7 @@ func routers(r *gin.Engine) {
 				fav.FavName = tagName
 				prefix = tagName
 			}
-			favInfoIns := favInfo{siteName, siteIcon, siteUrl,}
+			favInfoIns := favInfo{siteName, siteIcon, siteUrl}
 			fav.FavData = append(fav.FavData, favInfoIns)
 		}
 
@@ -86,7 +86,7 @@ func routers(r *gin.Engine) {
 		c.HTML(http.StatusOK, "main.tmpl", gin.H{
 			"title":    "psfe",
 			"username": "schoeu",
-			"favData": rsFavIns,
+			"favData":  rsFavIns,
 		})
 	})
 
@@ -201,13 +201,9 @@ func routers(r *gin.Engine) {
 				host = siteInfo.Path
 			}
 
-
-
-
 			siteFullUrl := form.SiteUrl
 
 			siteIcon := filepath.Join(host, "/favicon.ico")
-
 
 			matched, err := regexp.MatchString("://", siteIcon)
 			if !matched {
