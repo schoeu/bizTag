@@ -15,6 +15,13 @@
 .bt-display-inline{
     display: inline-block;
 }
+.bt-font-14{
+    font-size: 14px;
+}
+.bt-container{
+    width: 1080px;
+    margin: 0 auto;
+}
 
 /* new style */
 .bt-hdright>span{
@@ -37,8 +44,6 @@
     background-color: #5E6CFF;
 }
 .bt-content{
-    width: 1080px;
-    margin: 0 auto;
     overflow: hidden;
 }
 .bt-hdright{
@@ -55,4 +60,19 @@
     display: inline-block;
     vertical-align: super;
     line-height: 64px;
+}
+.bt-nav-item{
+    float: left;
+    padding: 5px 23px;
+    background-color: #F7F8FF;
+    border-radius: 30px;
+    color: #737693;
+    margin: 0 16px 20px 0;
+
+}
+.bt-nav-item:first-child{
+    margin-left: 0px;
+}
+.bt-nav{
+    margin-top: 35px;
 }
