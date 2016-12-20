@@ -1,25 +1,58 @@
-.searchArea{
-    margin-bottom: 50px;
+/* common style */
+.bt-clear:before{
+    display: table;
+    content: " ";
 }
-.fav-btn{
-    position: relative;
-    background: #fff;
-    border: 1px solid #2b9cf2;
-}
-.fav-btn:hover{
-    background: #2b9cf2;
+.bt-color-white{
     color: #fff;
-    text-decoration: none;
 }
-.site-icon{
-    background-size: cover;
+.bt-text-right{
+    text-align: right;
+}
+.bt-text-left{
+    text-align: left;
+}
+.bt-display-inline{
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    vertical-align: sub;
-    margin-right: 3px;
 }
-/* new style */
-.bt-content>div{
 
+/* new style */
+.bt-hdright>span{
+    width: 49px;
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 19px;
+}
+.bt-login{
+    border-right: 2px solid #fff;
+    padding-right: 5px;
+}
+.bt-content>div{
+    float: left;
+    height: 60px;
+    width: 50%;
+}
+.bt-header{
+    background-color: #5E6CFF;
+}
+.bt-content{
+    width: 1080px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.bt-hdright{
+    float: right;
+}
+.bt-logo{
+    display: inline-block;
+    width: 34px;
+    height: 30px;
+    background-color: #FFF;
+}
+.bt-logoinfo{
+    margin-left: 17px;
+    display: inline-block;
+    vertical-align: super;
+    line-height: 64px;
 }
