@@ -20,17 +20,33 @@
     font-size: 14px;
 }
 .bt-container{
+    font-family: PingFangSC-Regular;
     width: 1080px;
     margin: 0 auto;
 }
 
 /* new style */
+.bt-footer-container{
+    background-color: #484E73;
+    margin-top: 123px;
+    color: #FFFFFF;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+}
+.bt-footer-text:last-child{
+    margin-top: 10px;
+}
+.bt-footer-area{
+    padding: 25px 0;
+    text-align: center;
+    font-size: 14px;
+}
 .bt-hdright>span{
     width: 49px;
     display: inline-block;
     text-align: center;
     line-height: 18px;
-    margin-top: 19px;
+    margin-top: 21px;
 }
 .bt-login{
     border-right: 2px solid #fff;
@@ -55,12 +71,13 @@
     width: 34px;
     height: 30px;
     background-color: #FFF;
+    line-height: 60px;
+    vertical-align: middle;
 }
 .bt-logoinfo{
     margin-left: 17px;
     display: inline-block;
-    vertical-align: super;
-    line-height: 64px;
+    line-height: 60px;
 }
 .bt-nav-item{
     float: left;
@@ -70,6 +87,12 @@
     color: #737693;
     margin: 0 16px 20px 0;
     cursor: pointer;
+    transition: all .2s;
+
+}
+.bt-nav-item:hover{
+    background-color: #5E7EFF;
+    color: #FFF;
 
 }
 .bt-nav-item:first-child{
@@ -82,7 +105,7 @@
     margin-top: 20px;
 }
 .bt-recom-area{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .bt-recom-title{
     text-indent: 7px;
@@ -97,10 +120,14 @@
     display: inline-block;
     width: 18%;
     background: #FFFFFF;
-    box-shadow: 0px 3px 11px 0px rgba(104,118,255,0.10);
     border-radius: 8px;
     padding: 14px 20px;
-
+    border: 1px solid #EFF1FF;
+    transition: all .2s;
+}
+.bt-recom-item:hover{
+    border: 1px solid transparent;
+    box-shadow: 0 5px 18px 2px rgba(104,118,255,0.10);
 }
 .bt-recom-rerow .bt-recom-item:first-child{
     margin-left: 0;
@@ -112,12 +139,13 @@
     font-size: 18px;
     color: #737693;
     letter-spacing: .25px;
+    vertical-align: top;
+    line-height: 40px;
 }
 .bt-recom-icon{
     display: inline-block;
     width: 40px;
     height: 40px;
-    vertical-align: middle;
     margin-right: 12px;
     background-image: url("/static/imgs/test.png");
     background-position: center;
@@ -140,7 +168,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    vertical-align: middle;
+    vertical-align: text-bottom;
 }
 .bt-recom-like{
     font-size: 14px;
