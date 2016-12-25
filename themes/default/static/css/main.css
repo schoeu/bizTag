@@ -1,7 +1,8 @@
 /* common style */
-.bt-clear:before{
+.bt-clear:before, .bt-clear:after{
     display: table;
     content: " ";
+    clear: both;
 }
 .bt-color-white{
     color: #fff;
@@ -41,7 +42,7 @@
     width: 50%;
 }
 .bt-header{
-    background-color: #5E6CFF;
+    background-color: #5E7EFF;
 }
 .bt-content{
     overflow: hidden;
@@ -68,6 +69,7 @@
     border-radius: 30px;
     color: #737693;
     margin: 0 16px 20px 0;
+    cursor: pointer;
 
 }
 .bt-nav-item:first-child{
@@ -75,4 +77,77 @@
 }
 .bt-nav{
     margin-top: 35px;
+}
+.bt-recom-list{
+    margin-top: 20px;
+}
+.bt-recom-area{
+    margin-bottom: 40px;
+}
+.bt-recom-title{
+    text-indent: 7px;
+    line-height: 28px;
+    border-left: 2px solid #5E7EFF;
+    font-size: 20px;
+    color: #5E7EFF;
+}
+.bt-recom-item{
+    box-sizing: border-box;
+    margin: 0 0 20px 20px;
+    display: inline-block;
+    width: 18%;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 11px 0px rgba(104,118,255,0.10);
+    border-radius: 8px;
+    padding: 14px 20px;
+
+}
+.bt-recom-rerow .bt-recom-item:first-child{
+    margin-left: 0;
+}
+.bt-recom-rcitems{
+    margin-top: 23px;
+}
+.bt-recom-hdtext{
+    font-size: 18px;
+    color: #737693;
+    letter-spacing: .25px;
+}
+.bt-recom-icon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 12px;
+    background-image: url("/static/imgs/test.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.bt-recom-desc{
+    margin-top: 15px;
+    font-size: 14px;
+    color: #9096BA;
+    line-height: 24px;
+    height: 5em;
+}
+.bt-recom-cicon{
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    margin-right: 6px;
+    background-image: url("/static/imgs/link.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+}
+.bt-recom-like{
+    font-size: 14px;
+    color: #9096BA;
+    letter-spacing: 0.2px;
+}
+.bt-recom-col{
+    margin-top: 11px;
+    text-align: right;
 }
