@@ -31,24 +31,31 @@
                     TO <br/>
                     SCHOEU
                 </div>
-                <div class="bt-login-lgform">
+                <div class="bt-login-lgform bt-font-16">
                     <form action="/login" class="" method="post">
                         <label for="username">账号</label>
                         <div class="bt-login-un">
-                            <input type="text" name="username" id="username" placeholder="请输入用户名"/>
+                            <input type="text" name="username" id="username" placeholder="请输入用户名" class="bt-font-14"/>
                         </div>
                         <label for="password">密码</label>
                         <div class="bt-login-psw">
-                            <input type="password" name="password" id="password" placeholder="请输入密码"/>
+                            <input type="password" name="password" id="password" placeholder="请输入密码" class="bt-font-14"/>
                         </div>
-                        <div>
-                            <a href="/forgetpassword" class="bt-login-forget">忘记密码</a>
+                        <div class="bt-login-forget bt-font-14 bt-text-right">
+                            <a href="/forgetpassword">忘记密码</a>
                         </div>
-                        <div>
+                        <div class="bt-login-libtn bt-font-14 bt-text-center">
                             <input type="button" value="登录"/>
                         </div>
-
                     </form>
+                    <div class="bt-login-others">
+                        第三方登录
+                    </div>
+                    <div class="bt-login-app">
+                        <span class="bt-login-appitem"></span>
+                        <span class="bt-login-appitem"></span>
+                        <span class="bt-login-appitem"></span>
+                    </div>
                 </div>
             </div>
         </div>

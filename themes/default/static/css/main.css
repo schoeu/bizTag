@@ -1,30 +1,3 @@
-/* common style */
-.bt-clear:before, .bt-clear:after{
-    display: table;
-    content: " ";
-    clear: both;
-}
-.bt-color-white{
-    color: #fff;
-}
-.bt-text-right{
-    text-align: right;
-}
-.bt-text-left{
-    text-align: left;
-}
-.bt-display-inline{
-    display: inline-block;
-}
-.bt-font-14{
-    font-size: 14px;
-}
-.bt-container{
-    font-family: PingFangSC-Regular;
-    width: 1080px;
-    margin: 0 auto;
-}
-
 /* new style */
 .bt-footer-container{
     background-color: #484E73;

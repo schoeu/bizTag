@@ -417,3 +417,35 @@ textarea {
     -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
 }
+/* common style */
+.bt-clear:before, .bt-clear:after{
+    display: table;
+    content: " ";
+    clear: both;
+}
+.bt-color-white{
+    color: #fff;
+}
+.bt-text-right{
+    text-align: right;
+}
+.bt-text-center{
+    text-align: center;
+}
+.bt-text-left{
+    text-align: left;
+}
+.bt-display-inline{
+    display: inline-block;
+}
+.bt-font-14{
+    font-size: 14px;
+}
+.bt-container{
+    font-family: PingFangSC-Regular;
+    width: 1080px;
+    margin: 0 auto;
+}
+.bt-font-16{
+    font-size: 16px;
+}

@@ -10,12 +10,12 @@
 }
 .bt-login-area{
     position: absolute;
-    top:50%;
-    left:50%;
-    margin-top: -174px;
-    margin-left: -280px;
-    width: 560px;
-    height: 470px;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -325px;
+    width: 650px;
+    height: 500px;
     border-radius: 6px;
     box-shadow: 0 5px 18px 2px rgba(104,118,255,0.10);
     overflow: hidden;
@@ -92,4 +92,39 @@
     margin-top: 30px;
     letter-spacing: 1px;
 }
-
+.bt-login-lgform{
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #737693;
+    letter-spacing: 0.09px;
+    margin-top: 48px;
+}
+.bt-login-lgform input{
+    border: none;
+    color: #B5BAD9;
+    letter-spacing: 0.08px;
+}
+.bt-login-un,.bt-login-psw{
+    border-bottom: 1px solid #E1E2F3;
+}
+.bt-login-un{
+    margin-bottom: 15px;
+}
+.bt-login-forget>a{
+    text-decoration: none;
+    margin-top: 10px;
+    color: #737693;
+    letter-spacing: 0.08px;
+}
+.bt-login-forget{
+    margin-top: 10px;
+}
+.bt-login-libtn input{
+    margin-top: 30px;
+    background: #5C6DFB;
+    border-radius: 87px;
+    height: 40px;
+    width: 180px;
+    outline: none;
+    color: #FFF;
+}
