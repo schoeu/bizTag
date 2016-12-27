@@ -1,0 +1,59 @@
+<html>
+<head>
+    {{template "base_headinfo"}}
+    <link type="text/css" rel="stylesheet" href="/static/css/login.css"/>
+</head>
+
+<body>
+<div class="bt-login-container">
+    <div class="bt-login-bg"></div>
+    <div class="bt-login-logo">
+        <div class="bt-login-lg"></div>
+        <div class="bt-login-title">SCHOEU</div>
+    </div>
+    <div class="bt-login-area">
+        <div class="bt-login-lf">
+
+        </div>
+        <div class="bt-login-rt">
+            <div class="bt-login-ctt">
+                <div class="bt-login-btns">
+                    <div class="bt-login-signup">
+                        注册
+
+                    </div>
+                    <div class="bt-login-login bt-login-active">
+                        登录
+                    </div>
+                </div>
+                <div class="bt-login-wc">
+                    WELCOME <br/>
+                    TO <br/>
+                    SCHOEU
+                </div>
+                <div class="bt-login-lgform">
+                    <form action="/login" class="" method="post">
+                        <label for="username">账号</label>
+                        <div class="bt-login-un">
+                            <input type="text" name="username" id="username" placeholder="请输入用户名"/>
+                        </div>
+                        <label for="password">密码</label>
+                        <div class="bt-login-psw">
+                            <input type="password" name="password" id="password" placeholder="请输入密码"/>
+                        </div>
+                        <div>
+                            <a href="/forgetpassword" class="bt-login-forget">忘记密码</a>
+                        </div>
+                        <div>
+                            <input type="button" value="登录"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jq.min.js"></script>
+</body>
+</html>

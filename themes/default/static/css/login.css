@@ -1,0 +1,95 @@
+.bt-login-container{
+    position: relative;
+    font-family: DINPro-Regular;
+    height: 100%;
+    box-sizing: border-box;
+}
+.bt-login-bg{
+    height: 40%;
+    background-color: #5E7EFF;
+}
+.bt-login-area{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -174px;
+    margin-left: -280px;
+    width: 560px;
+    height: 470px;
+    border-radius: 6px;
+    box-shadow: 0 5px 18px 2px rgba(104,118,255,0.10);
+    overflow: hidden;
+    background-color: #FFF;
+}
+.bt-login-lf,.bt-login-rt{
+    height: 100%;
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+}
+.bt-login-ctt{
+    box-sizing: border-box;
+    padding: 30px;
+}
+.bt-login-lf{
+    background-image: url("/static/imgs/left.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bt-login-logo{
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    height: 200px;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -43px;
+    text-align: center;
+}
+.bt-login-lg{
+    height: 60px;
+    width: 50px;
+    background-image: url(/static/imgs/loginlogo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+}
+.bt-login-title{
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0.21px;
+    margin-top: 8px;
+}
+.bt-login-btns{
+    width: 80px;
+    height: 25px;
+    border: 1px solid #5E7EFF;
+    border-radius: 87px;
+    margin: 0 0 0 auto;
+    overflow: hidden;
+}
+.bt-login-signup,.bt-login-login{
+    width: 50%;
+    font-size: 12px;
+    float: left;
+    background-color: #FFF;
+    color: #5E7EFF;
+    line-height: 26px;
+    text-align: center;
+    cursor: pointer;
+}
+.bt-login-active{
+    background-color: #5E7EFF;
+    color: #FFF;
+}
+.bt-login-wc{
+    font-family: DINPro-Regular;
+    color: #5E7EFF;
+    font-size: 23px;
+    line-height: 27px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
