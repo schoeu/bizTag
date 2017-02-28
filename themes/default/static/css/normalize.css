@@ -441,6 +441,15 @@ textarea {
 .bt-font-14{
     font-size: 14px;
 }
+.bt-font-13{
+    font-size: 13px;
+}
+.bt-gap-left-8{
+    margin-left: 8px;
+}
+.bt-gap-right-8{
+    margin-right: 8px;
+}
 .bt-container{
     font-family: PingFangSC-Regular;
     width: 1080px;
