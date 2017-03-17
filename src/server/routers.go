@@ -256,6 +256,14 @@ func routers(r *gin.Engine) {
 			"isLogin": false,
 		})
 	})
+
+	// 已登录页面
+	r.GET("/loggedin", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "loggedin.tmpl", gin.H{
+			"title":   "Sign up",
+			"isLogin": false,
+		})
+	})
 }
 
 func checkErr(err error) {
