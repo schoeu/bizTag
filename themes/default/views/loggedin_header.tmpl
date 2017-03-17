@@ -1,4 +1,21 @@
 {{define "loggedin_header"}}
+<style>
+    .bt-loggedin,.bt-signout{
+        display: inline-block;
+    }
+    .bt-pinfo-img{
+        width: 55px;
+        height: 55px;
+    }
+    .bt-pinfo-name{
+        color: #737693;
+        font-size: 18px;
+    }
+    .bt-pinfo-sign{
+        font-size: 14px;
+        color: #B5B9D3;
+    }
+</style>
 <header class="bt-header">
     <div class="bt-content bt-clear bt-container">
         <div class="bt-hdleft bt-color-white">
@@ -10,12 +27,25 @@
             </span>
         </div>
         <div class="bt-hdright bt-color-white bt-text-right">
-            <span class="bt-login">
+            <div class="bt-login bt-loggedin">
                 爱美丽
-            </span>
-            <span class="bt-signin">
+                <div class="bt-pinfo">
+                    <div class="bt-pinfo-img">
+
+                    </div>
+                    <div class="bt-pinfo-infos">
+                        <div class="bt-pinfo-name">
+                            爱美丽
+                        </div>
+                        <div class="bt-pinfo-sign">
+                            彪悍的人生不需要解释
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bt-signout">
                 退出
-            </span>
+            </div>
         </div>
     </div>
 </header>
