@@ -1,7 +1,9 @@
 {{define "loggedin_header"}}
 <style>
     .bt-loggedin,.bt-signout{
+        position: relative;
         display: inline-block;
+        margin-top: 21px;
     }
     .bt-pinfo-img{
         width: 55px;
@@ -15,9 +17,21 @@
         font-size: 14px;
         color: #B5B9D3;
     }
+    .bt-loggedin:hover .bt-pinfo{
+        display: block;
+    }
+    .bt-pinfo{
+        position: absolute;
+        right: -30px;
+        top: 39px;
+        width: 230px;
+        height: 160px;
+        border: 1px solid #000;
+        z-index: 10;
+    }
 </style>
 <header class="bt-header">
-    <div class="bt-content bt-clear bt-container">
+    <div class="bt-clear bt-container bt-content ">
         <div class="bt-hdleft bt-color-white">
             <span class="bt-logo">
 
@@ -29,7 +43,7 @@
         <div class="bt-hdright bt-color-white bt-text-right">
             <div class="bt-login bt-loggedin">
                 爱美丽
-                <div class="bt-pinfo">
+                <div class="bt-pinfo bt-hide">
                     <div class="bt-pinfo-img">
 
                     </div>
